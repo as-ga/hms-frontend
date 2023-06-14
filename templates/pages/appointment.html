@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% block title %}Appointment{% endblock title %}
+{% block body %}
+
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }}" role="alert">
+  {{ message }}
+</div>
+{% endfor %}
+{% endif %}
+
+<div style="margin: 10px 50px;">
+  <h3>Appointment Details</h3>
+
+  <form method="post" class="form-control g-3">
+    <h2 style="text-align: center;">Patients Details</h2>
+    {% csrf_token %}
+    <!-- line 1 -->
+    <div class="row m-1">
+      <div class="col m-1">
+        <label for="inputEmail4" class="form-control">Name *
+          <input type="name" name="name" class="form-control" placeholder="Enter Name" required>
+        </label>
+      </div>
+      <div class="col m-1"><label for="inputEmail4" class="form-control">Gender *
+          <br>
+          <label><input type="radio" value="Male" name="gender" id="101" required />Male
+          </label>
+          <label>
+            <input type="radio" value="Female" name="gender" id="102" required />Female
+          </label>
+        </label>
+      </div>
+    </div>
+    <!-- line 2 -->
+    <div class="row m-1">
+      <div class="col m-1">
+        <label for="inputEmail4" class="form-control">Phone *
+          <input type="tel" name="phone" class="form-control" placeholder="Enter Phone No." required>
+        </label>
+      </div>
+      <div class="col m-1">
+        <label for="inputEmail4" class="form-control">Email
+          <input type="email" name="email" class="form-control" placeholder="Enter Email"></label>
+      </div>
+    </div>
+    <!-- line 3 -->
+    <div class="row m-1">
+      <div class="col m-1 ">
+        <label for="inputEmail4" class="form-control">Address 1 *
+          <input type="text" name="address1" class="form-control" placeholder="Enter Address 1" required>
+        </label>
+      </div>
+      <div class="col m-1">
+        <label for="inputEmail4" class="form-control">Address 2
+          <input name="address2" type="text" class="form-control" placeholder="Enter Address 2">
+        </label>
+      </div>
+    </div>
+    <!-- line 4 -->
+    <div class="row m-1">
+      <div class="col m-1">
+        <label for="inputEmail4" class="form-control">Date *
+          <input type="date" name="appodate" class="form-control" required>
+        </label>
+      </div>
+      <div class="col m-1">
+        <label for="inputEmail4" class="form-control">Time
+          <!-- <input type="time" name="appotime" class="form-control"> -->
+          <select class="form-select" name="appotime" type="select">
+            <option>Select Doctor</option>
+            <option value="Stephanie Wosniack">Stephanie Wosniack</option>
+            <option value="Hellen Lowe">Hellen Lowe</option>
+            <option value="Emily Washington">Emily Washington</option>
+            <option value="Sussie Wolff">Sussie Wolff</option>
+          </select>
+        </label>
+      </div>
+    </div>
+    <!-- line 5 -->
+    <div class="row m-1">
+      <div class="col m-1">
+        <label for="inputEmail4" class="form-control">Select Your Doctor : *
+          <select class="form-select" name="doctor" type="select" required>
+            <option>Select Doctor</option>
+            <option value="Stephanie Wosniack">Stephanie Wosniack</option>
+            <option value="Hellen Lowe">Hellen Lowe</option>
+            <option value="Emily Washington">Emily Washington</option>
+            <option value="Sussie Wolff">Sussie Wolff</option>
+          </select>
+        </label>
+      </div>
+      <div class="col m-3"><label for="inputEmail4" class="form-label"><input type="submit" value="BOOK APPOINTMENT"
+            class=" btn btn-primary form-control"></label></div>
+    </div>
+  </form>
+</div>
+
+
+
+{% endblock body %}

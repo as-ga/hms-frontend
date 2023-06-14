@@ -1,0 +1,50 @@
+{% extends 'manager/base.html' %}
+{% block body %}
+<div class="details">
+    <div class="recentOrders">
+        <div class="cardHeader">
+            <h2>Recent Orders</h2>
+            <a href="/manager" class="btn">View All</a>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>S No.</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Phone</th>
+                    <th>Doctor</th>
+
+                    <th scope="col">Actions</th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for i in appo %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{ i.appodate }}</td>
+                    <td>{{ i.appotime }}</td>
+                    <td>{{ i.name }}</td>
+                    <td>{{ i.gender }}</td>
+                    <td>{{ i.phone }}</td>
+                    <td>{{ i.doctor }}</td>
+                    <td>
+                        <div class="cardHeader">
+                            <a class="btn" href="/manager/update/{{i.id}}/">Update</a>
+                            <a class="btn" href="#">Print</a>
+                            <a class="btn" href="/manager/delete-appo/{{i.id}}/">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}
